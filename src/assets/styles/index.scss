@@ -1,5 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=M+PLUS+1+Code:wght@400;500;600;700&family=M+PLUS+1:wght@300;400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
+$background: #192a32;
+$light: #1f3540;
+$offWhite: #a8bec9;
+$shadowDark: #0f212b;
+$blue: #2fc4be;
+$yellow: #ecb139;
+
 :root {
   font-family: "M PLUS 1", sans-serif;
   font-family: "M PLUS 1 Code", monospace;
@@ -9,7 +16,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #192a32;
+  background-color: $background;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,8 +25,124 @@
   -webkit-text-size-adjust: 100%;
 }
 
+@mixin flexCenter($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+@mixin gridCenterRepeat {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 18px;
+}
+@mixin gridCenter {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+@mixin iconsStyles($iconSize) {
+  .xicon {
+    fill: $blue;
+    width: $iconSize;
+    height: $iconSize;
+  }
+  .oicon {
+    fill: $yellow;
+    width: $iconSize;
+    height: $iconSize;
+  }
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  @include flexCenter(center);
+  .container {
+    min-width: 320px;
+    .controls {
+      // @include flexCenter(space-between);
+      @include gridCenterRepeat;
+      @include iconsStyles(32px);
+      .ButtonComponent {
+        @include flexCenter(space-between);
+        padding: 8px 25px;
+        border-radius: 8px;
+        background-color: $light;
+        box-shadow: 0px 3px $shadowDark;
+        color: $offWhite;
+        font-weight: 600;
+        font-weight: 22px;
+        .xicon2 {
+          fill: $offWhite;
+          width: 22px;
+          height: 22px;
+          margin-right: 5px;
+        }
+      }
+      .reloadComponent {
+        @include flexCenter(space-between);
+        float: right;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 8px;
+        background-color: $offWhite;
+        box-shadow: 0px 3px $shadowDark;
+        color: $light;
+        font-weight: 22px;
+        width: 22px;
+        .ricon {
+          fill: $light;
+          width: 22px;
+          height: 22px;
+        }
+      }
+    }
+    .main {
+      @include gridCenterRepeat;
+      padding: 25px 0;
+      div {
+        @include gridCenter;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        background-color: $light;
+        box-shadow: 0px 6px $shadowDark;
+        border-radius: 12px;
+        @include iconsStyles(64px);
+      }
+    }
+    .winsDisplay {
+      @include gridCenterRepeat;
+      .Button {
+        @include gridCenter;
+        padding: 8px 0;
+        border-radius: 12px;
+        width: 100%;
+        span {
+          text-align: center;
+          color: $shadowDark;
+          line-height: 1.2;
+        }
+        .title {
+          font-size: 12px;
+          font-weight: 600;
+        }
+        .score {
+          font-size: 24px;
+          font-weight: 800;
+        }
+      }
+    }
+    .yellowBG {
+      background-color: $yellow;
+    }
+    .blueBG {
+      background-color: $blue;
+    }
+    .offwhiteBG {
+      background-color: $offWhite;
+    }
+  }
 }
