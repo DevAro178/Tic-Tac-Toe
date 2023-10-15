@@ -1,37 +1,35 @@
 // eslint-disable-next-line no-unused-vars
 export default class player {
   marker = undefined;
-
+  name;
   wins = 0;
   draws = 0;
   losses = 0;
   constructor(marker) {
-    if (marker === 1 || marker === 0) {
-      this.marker = marker;
-    } else {
-      return { invalid: true };
-    }
+    this.marker = marker;
+    // console.log(marker);
   }
 
   getMarker() {
     return this.marker;
   }
-  setWins(wins) {
-    this.wins = wins;
+  addWins() {
+    this.wins = this.wins + 1;
+    console.log(this.wins);
   }
   getWins() {
     return this.wins;
   }
 
-  setLosses(losses) {
-    this.losses = losses;
+  addLosses() {
+    this.losses = this.losses + 1;
   }
   getLosses() {
     return this.losses;
   }
 
-  setDraws(draws) {
-    this.draws = draws;
+  addDraws() {
+    this.draws = this.draws + 1;
   }
   getDraws() {
     return this.draws;

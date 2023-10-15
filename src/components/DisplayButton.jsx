@@ -1,8 +1,8 @@
-const DisplayButton = ({ BgClass }) => {
+const DisplayButton = ({ BgClass, name, score }) => {
   return (
     <div className={`Button ${BgClass}`}>
-      <span className="title">Hello</span>
-      <span className="score">0</span>
+      <span className="title">{name}</span>
+      <span className="score">{score}</span>
     </div>
   );
 };

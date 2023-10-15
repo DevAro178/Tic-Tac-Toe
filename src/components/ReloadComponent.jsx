@@ -1,6 +1,11 @@
-const ReloadComponent = () => {
+const ReloadComponent = ({ reload, setReload }) => {
   return (
-    <div className="reloadComponent">
+    <div
+      className="reloadComponent"
+      onClick={() => {
+        setReload(!reload);
+      }}
+    >
       <svg
         className="ricon"
         version="1.1"
