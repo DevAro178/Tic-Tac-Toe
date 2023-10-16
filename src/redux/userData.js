@@ -1,23 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const userData = createSlice({
+const initialState = {
+  reload: false,
+};
+
+export const userDataSlice = createSlice({
   name: "userData",
-  initialState: {
-    board: Array(9).fill(null),
-  },
+  initialState,
   reducers: {
-    boardclicked: (state, action) => {
-      const { index, userId } = action.payload;
-      state.board = state.board.map((value, i) =>
-        i === index ? userId : value
-      );
-    },
-    decremented: (state) => {
-      state.CounterValue -= 1;
+    setReload: (state, action) => {
+      state.reload = action.payload;
     },
   },
 });
 
-export const { boardclicked, decremented } = userData.actions;
+// Action creators are generated for each case reducer function
+export const { setReload } = userDataSlice.actions;
 
-export default userData.reducer;
+export default userDataSlice.reducer;
