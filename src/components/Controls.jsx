@@ -1,7 +1,7 @@
 import TurnComponent from "./TurnComponent";
 import ReloadComponent from "./ReloadComponent";
 
-const Controls = ({ reload, setReload }) => {
+const Controls = () => {
   return (
     <div className="controls">
       <div>
@@ -26,7 +26,7 @@ const Controls = ({ reload, setReload }) => {
         <TurnComponent />
       </div>
       <div>
-        <ReloadComponent reload={reload} setReload={setReload} />
+        <ReloadComponent />
       </div>
     </div>
   );

@@ -1,6 +1,16 @@
 import Tile from "./Tile";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 const Main = ({ gameController }) => {
+  const reload = useSelector((state) => state.user.reload);
+  const [reloadComp, setReloadComp] = useState(false);
+  useEffect(() => {
+    gameController.ReloadArray();
+    setReloadComp(!reloadComp);
+  }, [reload]);
+  useEffect(() => {}, [reloadComp]);
+
   return (
     <div className="main">
       <Tile gameController={gameController} boxId={0} />

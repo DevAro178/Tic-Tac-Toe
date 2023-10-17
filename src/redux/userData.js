@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   reload: false,
+  trial: 0,
 };
 
 export const userDataSlice = createSlice({
@@ -11,10 +12,13 @@ export const userDataSlice = createSlice({
     setReload: (state, action) => {
       state.reload = action.payload;
     },
+    setTrial: (state) => {
+      state.trial = +state.trial;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setReload } = userDataSlice.actions;
+export const { setReload, setTrial } = userDataSlice.actions;
 
 export default userDataSlice.reducer;

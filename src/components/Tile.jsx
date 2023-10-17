@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const Tile = ({ gameController, boxId }) => {
+  const reload = useSelector((state) => state.user.reload);
+  // useEffect(() => {
+  //   gameController.ReloadArray();
+  // }, [reload]);
+
   let [eventClick, SetEventClick] = useState(false);
   useEffect(() => {
     if (eventClick) {

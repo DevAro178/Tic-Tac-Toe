@@ -1,4 +1,6 @@
+import { useDispatch, useSelector } from "react-redux";
 import board from "./board";
+import { setTrial } from "../../redux/userData";
 export default class controller {
   gameStart;
   prevTurn;
@@ -18,7 +20,15 @@ export default class controller {
     }
     console.log("Clicked:" + boxId);
   }
+  ReloadArray() {
+    this.gameStart.boardArray = Array.from({ length: 9 }, () => undefined);
+    console.log(useSelector((state) => state.user.trial));
+  }
   constructor(userMarker) {
+    const dispatch = useDispatch();
+    dispatch(setTrial());
+    console.log(useSelector((state) => state.user.trial));
+
     this.gameStart = new board(userMarker);
     this.prevTurn = this.gameStart.p2.name;
     console.log(this.prevTurn);

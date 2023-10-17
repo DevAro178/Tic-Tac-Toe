@@ -1,9 +1,20 @@
-const ReloadComponent = ({ reload, setReload }) => {
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setReload } from "../redux/userData";
+
+const ReloadComponent = () => {
+  const reload = useSelector((state) => state.user.reload);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    console.log(reload);
+  }, [reload]);
+
   return (
     <div
       className="reloadComponent"
       onClick={() => {
-        setReload(!reload);
+        dispatch(setReload(!reload));
       }}
     >
       <svg
